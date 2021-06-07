@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-
 public class JSONWriter {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -34,18 +33,18 @@ public class JSONWriter {
 public static void JsonWriteParameterData(String fileName, CurveParameters cp) throws Exception {
 		
 		JSONObject obj = new JSONObject();
-		obj.put("name", cp.getName());
-		obj.put("p", cp.getP());
-		obj.put("a", cp.getA());
-		obj.put("b", cp.getB());
+		obj.put("name", String.valueOf(cp.getName()));
+		obj.put("p", String.valueOf(cp.getP()));
+		obj.put("a", String.valueOf(cp.getA()));
+		obj.put("b", String.valueOf(cp.getB()));
 		JSONObject generatorPoints = new JSONObject();
-		generatorPoints.put("x", cp.getX());
-		generatorPoints.put("y", cp.getY());
+		generatorPoints.put("x", String.valueOf(cp.getX()));
+		generatorPoints.put("y", String.valueOf(cp.getY()));
 		obj.put("g",generatorPoints);
-		obj.put("n", cp.getN());
+		obj.put("n", String.valueOf(cp.getN()));
 		JSONObject publicKeyPoints = new JSONObject();
-		publicKeyPoints.put("x", cp.getPublic_key().getAffineX());
-		publicKeyPoints.put("y", cp.getPublic_key().getAffineY());
+		publicKeyPoints.put("x", String.valueOf(cp.getPublic_key().getAffineX()));
+		publicKeyPoints.put("y", String.valueOf(cp.getPublic_key().getAffineY()));
 		obj.put("public key",publicKeyPoints);
 		
 		@SuppressWarnings("resource")
